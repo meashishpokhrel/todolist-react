@@ -13,12 +13,12 @@ class App extends Component {
       {
         id:2,
         title: "Do homework",
-        compeleted: false
+        compeleted: true
       },
       {
         id:3,
         title: "Covid 19 tracker app",
-        compeleted: false
+        compeleted: true
       }
     ]
   }
