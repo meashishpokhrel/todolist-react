@@ -4,28 +4,19 @@ import Todos from "./components/Todos";
 import Header from "./components/layouts/header";
 import about from "./components/pages/about";
 import AddTodo from "./components/AddTodo";
-import {v4 as uuid} from "uuid";
+// import {v4 as uuid} from "uuid";
+import axios from "axios";
 import './App.css';
 
 class App extends Component {
   state = {
-    todos: [
-      {
-        id:uuid(),
-        title: "Lets do this!",
-        compeleted: false
-      },
-      {
-        id:uuid(),
-        title: "Do homework",
-        compeleted: true
-      },
-      {
-        id:uuid(),
-        title: "Covid 19 tracker app",
-        compeleted: true
-      }
-    ]
+    todos: []
+  }
+
+  componentDidMount(){
+      axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then(res => this.setState({ todos: res.data})
+      )
   }
 
   //Mark Toggle
